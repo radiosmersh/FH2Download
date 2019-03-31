@@ -1,35 +1,32 @@
 {
-  "name": "FH2-Download-Assistant",
-  "version": "1.0.0",
-  "description": "Download tool for FH2",
+  "name": "PRBF2-Download-Assistant",
+  "version": "1.1.1",
+  "description": "Download tool for PR:BF2",
   "main": "./app/main.js",
   "dependencies": {
     "humanize-duration": "latest",
     "pretty-bytes": "latest",
-    "webtorrent": "^0.99.0"
+    "webtorrent": "^0.101.0"
   },
   "scripts": {
     "start": "electron .",
-    "postinstall": "electron-builder install-app-deps",
-    "dist": "electron-builder"
+    "dist": "build"
   },
-  "author": "kutuzovrusss and radiosmersh",
+  "author": "Wouter Jansen",
   "build": {
-    "appId": "FH2-Download-Assistant",
+    "appId": "PRBF2-Download-Assistant",
     "win": {
       "target": [
         {
           "target": "portable",
-          "arch": [
-            "ia32"
-          ]
+          "arch":["ia32"]
         }
       ],
       "icon": "/app/assets/icons/ico/icon.ico"
     }
   },
   "devDependencies": {
-    "electron": "^4.0.0",
-    "electron-builder": "^20.38.4"
+    "electron": "latest",
+    "electron-builder": "latest"
   }
 }

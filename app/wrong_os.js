@@ -12,7 +12,7 @@ $(() => {
     }
 
     function onWebsiteLinkPress() {
-        shell.openExternal('https://www.realitymod.com')
+        shell.openExternal('http://www.forgottenhope.warumdarum.de/')
     }
 
     function onCloseButtonPress() {
@@ -23,7 +23,7 @@ $(() => {
     }
 
     function onGithubLinkPress() {
-        shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
+        shell.openExternal('https://github.com/kutuzovrusss/FH2Download')
     }
 
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);

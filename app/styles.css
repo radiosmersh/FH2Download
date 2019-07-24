@@ -6,7 +6,7 @@ body {
 }
 
 h1 {
-    color: #2d93c6;
+    color: #c62d2d;
 }
 
 p {
@@ -22,18 +22,18 @@ h5 {
 }
 
 .progress-bar {
-    background-color: #2d93c6;
+    background-color: #ff0000;
 }
 
 .btn-primary {
-    background: linear-gradient(to bottom, #3298cb, #03699c);
+    background: linear-gradient(to bottom, #fa0101, #ffffff);
     color: black;
     border: none;
     font-weight: 500;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(to bottom, #43a9dc, #147aad);
+    background: linear-gradient(to bottom, #ff0000, #ffffff);
     color: black;
     border: none;
     font-weight: 500;
@@ -42,7 +42,7 @@ h5 {
 }
 
 .btn-primary:disabled {
-    background: linear-gradient(to bottom, #3298cb, #03699c);
+    background: linear-gradient(to bottom, #ff0000, #ffffff);
     color: black;
     border: none;
     font-weight: 500;
@@ -81,7 +81,7 @@ h5 {
 
 .fa-window-minimize:hover {
     color: #999999;
-    text-shadow: 0 0 5px #0c99ff;
+    text-shadow: 0 0 5px #ff0c0c;
 }
 
 .website-link {
@@ -120,7 +120,7 @@ h5 {
 }
 
 #prbf2-manual-link{
-    color: #0c99ff;
+    color: #ff0c0c;
     cursor: pointer;
 }
 

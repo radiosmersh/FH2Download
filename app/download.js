@@ -101,20 +101,20 @@ $(() => {
     }
 
     function onWebsiteLinkPress() {
-        shell.openExternal('https://www.realitymod.com')
+        shell.openExternal('http://forgottenhope.warumdarum.de')
     }
 
     function onPRManualLinkPress() {
-        shell.openExternal('https://www.realitymod.com/manual')
+        shell.openExternal('')
     }
 
     function onGithubLinkPress() {
-        shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
+        shell.openExternal('https://github.com/kutuzovrusss/FH2Download')
     }
 
     function onCloseButtonPress() {
         win.setProgressBar(0, {mode: "normal"});
-        if(!paused){client.remove(client.torrents[0]);}
+        if(!paused && client.torrents[0]){client.remove(client.torrents[0]);}
         win.loadFile('./app/cancel.html')
     }
 
@@ -172,9 +172,9 @@ $(() => {
         torrent.on('done', function () {
             win.setProgressBar(1, {mode: "normal"});
             completed = true;
-            app.setAppUserModelId("PRBF2-Download-Assistant");
+            app.setAppUserModelId("FH2-Download-Assistant");
             let notification = {
-                title: "PR:BF2 Download Assistant",
+                title: "FH2-Download-Assistant",
                 body: "Download Complete",
                 icon: './assets/icons/png/256x256.png'
             };

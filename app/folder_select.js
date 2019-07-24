@@ -7,7 +7,7 @@ $(() => {
     const shell = require('electron').shell;
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
-    const versionInformationURL = 'http://russianhope2.com/version.json';
+    const versionInformationURL = 'https://kutuzovrusss.000webhostapp.com/version.json';
 
     document.getElementById('download-storage-location-text').style.borderColor = 'black';
     $('#download-storage-location-text').attr('value', downloadsPath);
@@ -22,7 +22,7 @@ $(() => {
         });
         if (downloadsPathTemp !== undefined) {
             try {
-                fs.writeFileSync(downloadsPathTemp[0] + '\\test_write_access.pr', 'PR:BF2 Download Assistant - Write access test file. You can remove this file!', 'utf-8');
+                fs.writeFileSync(downloadsPathTemp[0] + '\\test_write_access.pr', 'FH2 Download Assistant - Write access test file. You can remove this file!', 'utf-8');
                 fs.unlinkSync(downloadsPathTemp[0] + '\\test_write_access.pr');
                 downloadsPath = downloadsPathTemp[0];
                 $('#download-storage-location-text').attr('value', downloadsPath);
@@ -62,7 +62,7 @@ $(() => {
     }
 
     function onGithubLinkPress() {
-        shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
+        shell.openExternal('https://github.com/kutuzovrusss/FH2Download')
     }
 
     function onCloseButtonPress() {

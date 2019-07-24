@@ -1,7 +1,7 @@
 {
-  "name": "PRBF2-Download-Assistant",
-  "version": "1.1.1",
-  "description": "Download tool for PR:BF2",
+  "name": "FH2-Download-Assistant",
+  "version": "1.0.0",
+  "description": "Download tool for FH2",
   "main": "./app/main.js",
   "dependencies": {
     "humanize-duration": "latest",
@@ -13,9 +13,9 @@
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder"
   },
-  "author": "Wouter Jansen",
+  "author": "kutuzovrusss",
   "build": {
-    "appId": "PRBF2-Download-Assistant",
+    "appId": "FH2-Download-Assistant",
     "win": {
       "target": [
         {

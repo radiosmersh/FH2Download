@@ -7,7 +7,7 @@ $(() => {
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
     let isoPath = 'none';
-    const versionInformationURL = 'http://russianhope2.com/version.json';
+    const versionInformationURL = 'https://kutuzovrusss.000webhostapp.com/version.json';
 
     function getDownloadStoragePath() {
         return JSON.parse(fs.readFileSync(configPath)).downloadStoragePath;
@@ -18,11 +18,11 @@ $(() => {
     }
 
     function onWebsiteLinkPress() {
-        shell.openExternal('https://www.realitymod.com')
+        shell.openExternal('http://www.forgottenhope.warumdarum.de/')
     }
 
     function onGithubLinkPress() {
-        shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
+        shell.openExternal('https://github.com/kutuzovrusss/FH2Download')
     }
 
     function onCloseButtonPress() {
@@ -42,6 +42,7 @@ $(() => {
 
     function onContinueButtonPress() {
         win.loadFile('./app/download.html')
+
     }
 
     function onCancelButtonPress() {

@@ -43,7 +43,7 @@ function createWindow() {
 
 }
 
-app.setAppUserModelId("PRBF2-Download-Assistant");
+app.setAppUserModelId("FH2-Download-Assistant");
 app.on('ready', createWindow);
 
 

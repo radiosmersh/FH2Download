@@ -9,6 +9,11 @@ Uses BitTorrent as download protocol using WebTorrent library.
 * Download of the installer torrent. 
 * If operating system allows this(Win8 and above), it automatically mounts the installer to a virtual drive and starts the installer setup executable. Otherwise simply opens the download folder. 
 
+## Install
+Run `npm install` start package installation.
+
+## Install electron-builder
+Run `npm run postinstall` start package installation.
 
 ## Start
 

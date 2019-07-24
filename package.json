@@ -13,7 +13,7 @@
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder"
   },
-  "author": "kutuzovrusss",
+  "author": "kutuzovrusss and radiosmersh",
   "build": {
     "appId": "FH2-Download-Assistant",
     "win": {

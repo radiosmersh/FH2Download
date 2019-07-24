@@ -11,13 +11,25 @@ $(() => {
     const client = new WebTorrent();
     const win = remote.getCurrentWindow();
 
-    let installerPath = 'none';
     let installerName = 'none';
-    let installerFolder = 'none';
-    const versionInformationURL = 'https://d76a05d74f889aafd38d-39162a6e09ffdab7394e3243fa2342c1.ssl.cf2.rackcdn.com/version.json';
+    let setupPath = 'none';
+    let isoPath = 'none';
+    const versionInformationURL = 'http://russianhope2.com/version.json';
     let paused = false;
     let completed = false;
     const configPath = path.join(app.getPath('userData'), 'config.json');
+    function findMountedDrive() {
+        let found = false;
+        for (let i = 65; i <= 90; i++) {
+            if (fs.existsSync(String.fromCharCode(i) + ':\\' + installerName)) {
+                found = true;
+                return String.fromCharCode(i) + ':\\' + installerName
+            }
+        }
+        if (found === false) {
+            return 'none'
+        }
+    }
 
     function getVersionBig(handleData) {
         $.ajax({
@@ -37,6 +49,15 @@ $(() => {
         });
     }
 
+    function getTorrentFileName(handleData) {
+        $.ajax({
+            url: versionInformationURL,
+            success:function(data) {
+                handleData(data.torrent_filename);
+            }
+        });
+    }
+
     function getTorrentSetupName(handleData) {
         $.ajax({
             url: versionInformationURL,
@@ -46,31 +67,33 @@ $(() => {
         });
     }
 
-    function getTorrentFolderName(handleData) {
-        $.ajax({
-            url: versionInformationURL,
-            success:function(data) {
-                handleData(data.torrent_foldername);
-            }
-        });
-    }
-
     function getDownloadStoragePath() {
         return JSON.parse(fs.readFileSync(configPath)).downloadStoragePath;
     }
 
-    function onCancelButtonPress() {
-        win.setProgressBar(0, {mode: "normal"});
-        if(!paused){client.remove(client.torrents[0]);}
-        win.loadFile('./app/cancel.html')
-    }
     function onInstallButtonPress() {
-        shell.showItemInFolder(path.join(getDownloadStoragePath(), installerFolder));
-        child = spawn(path.join(getDownloadStoragePath(), installerFolder, installerName));
-    }
-
-    function onRemoveButtonPress() {
-        win.loadFile('./app/remove.html')
+        if(!completed){
+            win.setProgressBar(0, {mode: "normal"});
+            if(!paused){client.remove(client.torrents[0]);}
+            win.loadFile('./app/cancel.html')
+        }else {
+            if (getOsVersion()) {
+                setupPath = findMountedDrive();
+                if (setupPath === 'none') {
+                    child = spawn("powershell.exe", ["-Command", "Mount-DiskImage -ImagePath \"" + isoPath + "\""]);
+                    setTimeout(function () {
+                        setupPath = findMountedDrive();
+                        child = spawn(setupPath);
+                    }, 3000);
+                } else {
+                    setupPath = findMountedDrive();
+                    child = spawn(setupPath);
+                }
+                $('#install-instructions').text('Once the installation is complete you can remove this utility and delete the Installer ISO file.');
+            } else {
+                shell.showItemInFolder(isoPath);
+            }
+        }
     }
 
     function onMinimizeButtonPress() {
@@ -90,8 +113,9 @@ $(() => {
     }
 
     function onCloseButtonPress() {
-        app.quit();
-        win.close();
+        win.setProgressBar(0, {mode: "normal"});
+        if(!paused){client.remove(client.torrents[0]);}
+        win.loadFile('./app/cancel.html')
     }
 
     function onTorrentContinueButtonPress() {
@@ -169,17 +193,18 @@ $(() => {
             $('#torrent-start').css('visibility', 'hidden');
             clearInterval(interval);
             torrent.destroy();
-            $('#install-instructions').text('');
-            $('#install-button').css('visibility', 'visible');
-            $('#cancel-button').css('visibility', 'hidden');
-            $('#remove-button').css('visibility', 'visible');
+            if (getOsVersion()) {
+                $('#install-instructions').text('');
+                $('#install-button').text('Start installer');
+            } else {
+                $('#install-button').text('Open downloads folder');
+                $('#install-instructions').text('Please use software such as 7ZIP or WinRar to open the ISO file you have downloaded. Then can you start the installer (' + installerName + ').');
+            }
         })
     }
 
     document.querySelector('#install-button').addEventListener('click', onInstallButtonPress);
-    document.querySelector('#cancel-button').addEventListener('click', onCancelButtonPress);
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
-    document.querySelector('#remove-button').addEventListener('click', onRemoveButtonPress);
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
     document.querySelector('#github-link').addEventListener('click', onGithubLinkPress);
@@ -193,11 +218,11 @@ $(() => {
     getTorrentURL(function(torrent_url){
         client.add(torrent_url, {path: getDownloadStoragePath()}, onTorrent);
     });
+    getTorrentFileName(function(torrent_filename){
+        isoPath = path.join(getDownloadStoragePath(), torrent_filename)
+    });
     getTorrentSetupName(function(torrent_setupname){
         installerName = torrent_setupname;
-    });
-    getTorrentFolderName(function(torrent_foldername){
-        installerFolder = torrent_foldername;
     });
 
 

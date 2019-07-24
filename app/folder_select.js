@@ -7,7 +7,7 @@ $(() => {
     const shell = require('electron').shell;
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
-    const versionInformationURL = 'https://d76a05d74f889aafd38d-39162a6e09ffdab7394e3243fa2342c1.ssl.cf2.rackcdn.com/version.json';
+    const versionInformationURL = 'http://russianhope2.com/version.json';
 
     document.getElementById('download-storage-location-text').style.borderColor = 'black';
     $('#download-storage-location-text').attr('value', downloadsPath);
@@ -58,7 +58,7 @@ $(() => {
     }
 
     function onWebsiteLinkPress() {
-        shell.openExternal('https://www.realitymod.com')
+        shell.openExternal('http://www.forgottenhope.warumdarum.de/')
     }
 
     function onGithubLinkPress() {

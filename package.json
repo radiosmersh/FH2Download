@@ -6,11 +6,12 @@
   "dependencies": {
     "humanize-duration": "latest",
     "pretty-bytes": "latest",
-    "webtorrent": "latest"
+    "webtorrent": "^0.99.0"
   },
   "scripts": {
     "start": "electron .",
-    "dist": "build"
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-builder"
   },
   "author": "Wouter Jansen",
   "build": {
@@ -19,14 +20,16 @@
       "target": [
         {
           "target": "portable",
-          "arch":["ia32"]
+          "arch": [
+            "ia32"
+          ]
         }
       ],
       "icon": "/app/assets/icons/ico/icon.ico"
     }
   },
   "devDependencies": {
-    "electron": "latest",
-    "electron-builder": "latest"
+    "electron": "^4.0.0",
+    "electron-builder": "^20.38.4"
   }
 }

@@ -3,12 +3,11 @@ $(() => {
     const app = remote.app;
     const fs = require('fs');
     const path = require('path');
-    var rimraf = require("rimraf");
     const shell = require('electron').shell;
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
-    let installerPath = 'none';
-    const versionInformationURL = 'https://d76a05d74f889aafd38d-39162a6e09ffdab7394e3243fa2342c1.ssl.cf2.rackcdn.com/version.json';
+    let isoPath = 'none';
+    const versionInformationURL = 'http://russianhope2.com/version.json';
 
     function getDownloadStoragePath() {
         return JSON.parse(fs.readFileSync(configPath)).downloadStoragePath;
@@ -29,13 +28,14 @@ $(() => {
     function onCloseButtonPress() {
         app.quit();
         win.close();
+
     }
 
-    function getTorrentFolderName(handleData) {
+    function getTorrentFileName(handleData) {
         $.ajax({
             url: versionInformationURL,
             success:function(data) {
-                handleData(data.torrent_foldername);
+                handleData(data.torrent_filename);
             }
         });
     }
@@ -52,7 +52,7 @@ $(() => {
 
     function onCancelAndRemoveButtonPress() {
         try{
-            rimraf.sync(installerPath);
+            fs.unlinkSync(isoPath);
         }catch(err){
             console.log(err)
         }
@@ -61,8 +61,8 @@ $(() => {
         win.close();
     }
 
-    getTorrentFolderName(function(torrent_foldername){
-        installerPath = path.join(getDownloadStoragePath(), torrent_foldername);
+    getTorrentFileName(function(torrent_filename){
+        isoPath = path.join(getDownloadStoragePath(), torrent_filename)
     });
 
     document.querySelector('#cancel-button').addEventListener('click', onCancelButtonPress);

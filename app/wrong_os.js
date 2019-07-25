@@ -12,7 +12,7 @@ $(() => {
     }
 
     function onWebsiteLinkPress() {
-        shell.openExternal('http://www.forgottenhope.warumdarum.de/')
+        shell.openExternal('http://www.fhmod.org/')
     }
 
     function onCloseButtonPress() {

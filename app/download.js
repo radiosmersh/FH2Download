@@ -101,7 +101,7 @@ $(() => {
     }
 
     function onWebsiteLinkPress() {
-        shell.openExternal('http://forgottenhope.warumdarum.de')
+        shell.openExternal('http://fhmod.org')
     }
 
     function onPRManualLinkPress() {

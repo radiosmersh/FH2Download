@@ -12,7 +12,7 @@ $(() => {
     document.getElementById('download-storage-location-text').style.borderColor = 'black';
     $('#download-storage-location-text').attr('value', downloadsPath);
     getVersionBig(function(version){
-        $('#prbf2-version').text(version);
+        $('#fh2-version').text(version);
     });
     function onBrowseButtonPress() {
         let downloadsPathTemp = remote.dialog.showOpenDialog({

@@ -104,8 +104,8 @@ $(() => {
         shell.openExternal('http://fhmod.org')
     }
 
-    function onPRManualLinkPress() {
-        shell.openExternal('')
+    function onFH2ManualLinkPress() {
+        shell.openExternal('https://www.youtube.com/watch?v=YnvqChuQX8U&list=PL0059528BCA568F9B')
     }
 
     function onGithubLinkPress() {
@@ -198,7 +198,7 @@ $(() => {
                 $('#install-button').text('Start installer');
             } else {
                 $('#install-button').text('Open downloads folder');
-                $('#install-instructions').text('Please use software such as 7ZIP or WinRar to open the ISO file you have downloaded. Then can you start the installer (' + installerName + ').');
+                $('#install-instructions').text('Please use software such as <a href="https://wincdemu.sysprogs.org" >WinCDEmu</a> or <a href="https://www.7-zip.org">7-Zip</a> to mount/open the ISO file you have downloaded. Then can you start the installer (' + installerName + ').');
             }
         })
     }
@@ -208,12 +208,12 @@ $(() => {
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
     document.querySelector('#github-link').addEventListener('click', onGithubLinkPress);
-    document.querySelector('#prbf2-manual-link').addEventListener('click', onPRManualLinkPress);
+    document.querySelector('#fh2-manual-link').addEventListener('click', onFH2ManualLinkPress);
     document.querySelector('#torrent-start').addEventListener('click', onTorrentContinueButtonPress);
     document.querySelector('#torrent-pause').addEventListener('click', onTorrentPauseButtonPress);
 
     getVersionBig(function(version){
-        $('#prbf2-version').text(version);
+        $('#fh2-version').text(version);
     });
     getTorrentURL(function(torrent_url){
         client.add(torrent_url, {path: getDownloadStoragePath()}, onTorrent);

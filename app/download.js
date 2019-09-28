@@ -76,6 +76,7 @@ $(() => {
         if(!paused && client.torrents[0]){client.remove(client.torrents[0]);}
         win.loadFile('./app/cancel.html')
     }
+
     function onInstallButtonPress() {
         if(!completed){
             win.setProgressBar(0, {mode: "normal"});

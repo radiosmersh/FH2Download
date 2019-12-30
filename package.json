@@ -1,33 +1,35 @@
 {
   "name": "FH2-Download-Assistant",
-  "version": "1.2.1",
+  "version": "1.0.0",
   "description": "Download tool for FH2",
   "main": "./app/main.js",
   "dependencies": {
     "humanize-duration": "latest",
     "pretty-bytes": "latest",
-    "webtorrent": "^0.101.0"
+    "webtorrent": "^0.99.0"
   },
   "scripts": {
     "start": "electron .",
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder"
   },
-  "author": "Wouter Jansen, radiosmersh and kutuzovrusss",
+  "author": "kutuzovrusss and radiosmersh",
   "build": {
     "appId": "FH2-Download-Assistant",
     "win": {
       "target": [
         {
           "target": "portable",
-          "arch":["ia32"]
+          "arch": [
+            "ia32"
+          ]
         }
       ],
       "icon": "/app/assets/icons/ico/icon.ico"
     }
   },
   "devDependencies": {
-    "electron": "latest",
-    "electron-builder": "latest"
+    "electron": "^4.0.0",
+    "electron-builder": "^20.38.4"
   }
 }

@@ -7,7 +7,7 @@ $(() => {
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
     let isoPath = 'none';
-    const versionInformationURL = 'https://kutuzovrusss.000webhostapp.com/version.json';
+    const versionInformationURL = 'https://playfh2.net/version.json';
 
     function getDownloadStoragePath() {
         return JSON.parse(fs.readFileSync(configPath)).downloadStoragePath;

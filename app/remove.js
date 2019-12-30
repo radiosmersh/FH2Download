@@ -19,11 +19,11 @@ $(() => {
     }
 
     function onWebsiteLinkPress() {
-        shell.openExternal('https://www.realitymod.com')
+        shell.openExternal('http://fhmod.org')
     }
 
     function onGithubLinkPress() {
-        shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
+        shell.openExternal('https://github.com/radiosmersh/FH2Download')
     }
 
     function onCloseButtonPress() {

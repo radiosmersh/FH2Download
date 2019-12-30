@@ -115,7 +115,7 @@ $(() => {
     }
 
     function onGithubLinkPress() {
-        shell.openExternal('https://github.com/kutuzovrusss/FH2Download')
+        shell.openExternal('https://github.com/radiosmersh/FH2Download')
     }
 
     function onCloseButtonPress() {

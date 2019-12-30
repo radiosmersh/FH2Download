@@ -1,5 +1,7 @@
 # FH2 Download Assistant
 
+Legal notice: this software is a derivative work from https://github.com/realitymod/PRBF2Download
+
 A webapplication build on Electron to help facilitate the download and installation of Forgotten Hope 2. 
 Uses BitTorrent as download protocol using WebTorrent library.
 

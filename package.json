@@ -1,7 +1,7 @@
 {
-  "name": "PRBF2-Download-Assistant",
+  "name": "FH2-Download-Assistant",
   "version": "1.2.1",
-  "description": "Download tool for PR:BF2",
+  "description": "Download tool for FH2",
   "main": "./app/main.js",
   "dependencies": {
     "humanize-duration": "latest",
@@ -14,7 +14,7 @@
   },
   "author": "Wouter Jansen",
   "build": {
-    "appId": "PRBF2-Download-Assistant",
+    "appId": "FH2-Download-Assistant",
     "win": {
       "target": [
         {

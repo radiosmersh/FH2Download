@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PR:BF2 Download Assistant
 
 An application build on Electron to help facilitate the download and installation of Project Reality: Battlefield 2. 
@@ -17,6 +16,3 @@ Run `npm start` to start the application.
 
 ## Build
 Run `npm run dist` to build the project.
-=======
-# FH2Download
->>>>>>> 03b49cb... Initial commit

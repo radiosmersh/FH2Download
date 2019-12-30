@@ -7,7 +7,7 @@ $(() => {
     const shell = require('electron').shell;
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
-    const versionInformationURL = 'https://kutuzovrusss.000webhostapp.com/version.json';
+    const versionInformationURL = 'https://playfh2.net/version.json';
 
     document.getElementById('download-storage-location-text').style.borderColor = 'black';
     $('#download-storage-location-text').attr('value', downloadsPath);

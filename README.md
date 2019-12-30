@@ -6,8 +6,8 @@ Uses BitTorrent as download protocol using WebTorrent library.
 ## Functionality
 * Allow user to select download folder and save this configuration when program is later restarted.
 * Retrieve Forgotten Hope 2 unofficial standalone installer version and torrent information from online source.
-* Download of the installer torrent. 
-* If operating system allows this(Win8 and above), it automatically mounts the installer to a virtual drive and starts the installer setup executable. Otherwise simply opens the download folder. 
+* Download of the installer through torrent. 
+* If operating system allows this (Windows 8 and above), it automatically mounts the installer to a virtual drive and starts the installer setup executable. Otherwise simply opens the download folder. 
 
 ## Install
 Run `npm install` start package installation.

@@ -95,9 +95,18 @@ h5 {
 
 .github-link {
     position: absolute;
-    font-size: 13px;
+    font-size: 20px;
     bottom: 0;
     left: 3px;
+    cursor: pointer;
+    color: #999999;
+}
+
+.discord-link {
+    position: absolute;
+    font-size: 20px;
+    bottom: 0;
+    left: 30px;
     cursor: pointer;
     color: #999999;
 }

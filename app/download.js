@@ -118,6 +118,10 @@ $(() => {
         shell.openExternal('https://github.com/radiosmersh/FH2Download')
     }
 
+    function onDiscordLinkPress() {
+        shell.openExternal('https://discord.gg/hU878P4')
+    }
+
     function onCloseButtonPress() {
         win.setProgressBar(0, {mode: "normal"});
         if(!paused && client.torrents[0]){client.remove(client.torrents[0]);}
@@ -214,6 +218,7 @@ $(() => {
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
     document.querySelector('#github-link').addEventListener('click', onGithubLinkPress);
+    document.querySelector('#discord-link').addEventListener('click', onDiscordLinkPress);
     document.querySelector('#fh2-manual-link').addEventListener('click', onFH2ManualLinkPress);
     document.querySelector('#torrent-start').addEventListener('click', onTorrentContinueButtonPress);
     document.querySelector('#torrent-pause').addEventListener('click', onTorrentPauseButtonPress);

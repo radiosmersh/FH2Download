@@ -16,8 +16,8 @@
   "author": "Wouter Jansen, radiosmersh, kutuzovrusss",
   "license": "GPL-3.0",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/radiosmersh/FH2Download"
+    "type": "git",
+    "url": "https://github.com/radiosmersh/FH2Download"
   },
   "build": {
     "appId": "FH2-Download-Assistant",

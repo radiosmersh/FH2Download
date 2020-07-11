@@ -25,6 +25,10 @@ $(() => {
         shell.openExternal('https://github.com/radiosmersh/FH2Download')
     }
 
+    function onDiscordLinkPress() {
+        shell.openExternal('https://discord.gg/hU878P4')
+    }
+
     function onCloseButtonPress() {
         app.quit();
         win.close();
@@ -73,4 +77,5 @@ $(() => {
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
     document.querySelector('#github-link').addEventListener('click', onGithubLinkPress);
+    document.querySelector('#discord-link').addEventListener('click', onDiscordLinkPress);
 });
